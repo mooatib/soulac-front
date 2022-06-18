@@ -11,7 +11,6 @@ export class TokenService {
   setToken(token: string): void {
     localStorage.removeItem(this.USER_TOKEN);
     localStorage.setItem(this.USER_TOKEN, token);
-    console.log('settting token in storage');
   }
 
   getToken(): string | null {

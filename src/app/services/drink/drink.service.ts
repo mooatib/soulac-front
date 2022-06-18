@@ -7,6 +7,7 @@ import {
   UpdateDrinkForm,
 } from 'src/app/models/drink/drink-form.model';
 import { Drink } from 'src/app/models/drink/drink.model';
+import { Page } from 'src/app/models/page.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,10 +16,22 @@ import { environment } from 'src/environments/environment';
 export class DrinkService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getDrinks(skip: number, limit: number): Observable<Drink[]> {
+  getDrinks(id: number, page: Page): Observable<Drink[]> {
+    let params = {
+      nbr: page.nbr,
+      limit: page.limit,
+      orderBy: page.orderBy,
+      orderByAsc: page.orderByAsc,
+      search: page.search,
+    };
     return this.http.get<Drink[]>(
-      `${environment.soulac_api_url}` + '/drinks' + `/${skip}&${limit}`
+      `${environment.soulac_api_url}` + '/drinks/user' + `/${id}`,
+      { params }
     );
+  }
+
+  getDrinksCount(): Observable<number> {
+    return this.http.get<number>(`${environment.soulac_api_url}` + '/drinks');
   }
 
   getDrink(id: number): Observable<Drink> {

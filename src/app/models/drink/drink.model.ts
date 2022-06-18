@@ -8,3 +8,13 @@ export class Drink {
   quantity: number;
   date: Date;
 }
+
+export class DrinkFlat {
+  id: number;
+  soulacaisName?: String;
+  soulacaisImg?: String;
+  alcoholName: String;
+  alcoholType: boolean;
+  quantity: number;
+  date: Date;
+}

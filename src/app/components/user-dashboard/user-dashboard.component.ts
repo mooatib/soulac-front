@@ -11,7 +11,6 @@ export class UserDashboardComponent implements OnInit {
   loggedSoulacais: Soulacais;
   constructor(private soulacaisService: SoulacaisService) {
     this.getLoggedInSoulacais();
-    console.log('CONST', this.loggedSoulacais);
   }
   ngOnInit(): void {}
 
