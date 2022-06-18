@@ -1,0 +1,19 @@
+<mat-card class="auth-form">
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" matInput />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" matInput />
+      </mat-form-field>
+      <div class="footer">
+        <a routerLink="/register"><small>Not regitered yet ?</small></a>
+        <button [disabled]="!loginForm.valid" mat-button>Connect</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

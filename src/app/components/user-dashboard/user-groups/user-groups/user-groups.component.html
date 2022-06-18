@@ -1,0 +1,19 @@
+<mat-form-field appearance="fill">
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Search</mat-label>
+  <input
+    matInput
+    [matAutocomplete]="auto"
+    [formControl]="groupCtrl"
+    placeholder="Group.."
+    #input
+  />
+</mat-form-field>
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option
+    *ngFor="let group of filteredGroups | async"
+    role="listitem"
+    [value]="group.name"
+    >{{ group.name }}</mat-option
+  >
+</mat-autocomplete>

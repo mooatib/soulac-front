@@ -1,0 +1,11 @@
+<div class="header">
+  <h1 class="title">Soulac</h1>
+  <button
+    *ngIf="checkIsLogged()"
+    mat-raised-button
+    class="settings"
+    (click)="openDialog()"
+  >
+    <img src="{{ loggedSoulacais.img }}" />
+  </button>
+</div>

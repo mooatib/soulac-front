@@ -1,0 +1,18 @@
+<div *ngIf="loggedSoulacais.id" class="dashboard">
+  <h1 class="title">Hello {{ loggedSoulacais.user.username }} !</h1>
+  <mat-card>
+    <app-user-info [loggedSoulacais]="loggedSoulacais"></app-user-info>
+  </mat-card>
+  <h1 class="title">Your groups</h1>
+  <mat-card class="groups-card">
+    <app-user-groups></app-user-groups>
+  </mat-card>
+  <h1 class="title">Stats</h1>
+  <mat-card>
+    <app-user-stats></app-user-stats>
+  </mat-card>
+  <h1 class="title">Drinks</h1>
+  <mat-card>
+    <app-user-drinks></app-user-drinks>
+  </mat-card>
+</div>
