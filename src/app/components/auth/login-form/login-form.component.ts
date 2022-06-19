@@ -36,15 +36,10 @@ export class LoginFormComponent implements OnInit {
     this.userForm = this.loginForm.getRawValue();
     this.service
       .login(this.userForm)
-      .then(() => {
-        this.soulacaisService.getLoggedSoulacais();
+      .then(async () => {
+        await this.soulacaisService.getLoggedSoulacais();
       })
       .finally(() => {
-        console.log(
-          'BEFORE REDIRECT',
-          this.soulacaisService.getLoggedInSoulacais(),
-          localStorage.getItem('soulacais')
-        );
         this.router.navigate(['/']);
       });
   }

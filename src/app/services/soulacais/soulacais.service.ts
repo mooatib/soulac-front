@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import {
   CreateSoulacaisForm,
   UpdateSoulacaisForm,
@@ -28,18 +28,18 @@ export class SoulacaisService {
       this.getLoggedSoulacais();
     }
   }
-  async getLoggedSoulacais() {
+  async getLoggedSoulacais(): Promise<void> {
     this.loggedInUser = this.userService.getLoggedInUser();
-    this.getSoulacais(this.loggedInUser.id).subscribe({
-      next: (result) => {
-        localStorage.setItem(this.SOULACAIS, JSON.stringify(result));
-        console.log('soulacais set in lcoal ');
-      },
-      error: (e) => {
-        this.loggedInSoulacais.user = this.loggedInUser;
-        this.createSoulacais(this.loggedInSoulacais);
-      },
-    });
+    return firstValueFrom(this.getSoulacais(this.loggedInUser.id)).then(
+      (result) => {
+        if (result) {
+          localStorage.setItem(this.SOULACAIS, JSON.stringify(result));
+        } else {
+          this.loggedInSoulacais.user = this.loggedInUser;
+          this.createSoulacais(this.loggedInSoulacais);
+        }
+      }
+    );
   }
   getSoulacais(id: number): Observable<Soulacais> {
     return this.http.get<Soulacais>(
