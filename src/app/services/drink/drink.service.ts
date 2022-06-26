@@ -16,8 +16,8 @@ import { environment } from 'src/environments/environment';
 export class DrinkService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getDrinks(id: number, page: Page): Observable<Drink[]> {
-    let params = {
+  getDrinkByUserId(id: number, page: Page): Observable<Drink[]> {
+    const params = {
       nbr: page.nbr,
       limit: page.limit,
       orderBy: page.orderBy,
@@ -30,19 +30,19 @@ export class DrinkService {
     );
   }
 
-  getDrinksCount(): Observable<number> {
-    return this.http.get<number>(`${environment.soulac_api_url}` + '/drinks');
+  getDrinksCount(id: number): Observable<number> {
+    return this.http.get<number>(
+      `${environment.soulac_api_url}` + '/drinks/user' + `/${id}/count`
+    );
   }
 
-  getDrink(id: number): Observable<Drink> {
+  getLastUserDrink(id: number): Observable<Drink> {
     return this.http.get<Drink>(
-      `${environment.soulac_api_url}` + '/drinks' + `/${id}`
+      `${environment.soulac_api_url}` + '/drinks/user' + `/${id}/last`
     );
   }
-  getDrinkByUserId(id: number): Observable<Drink> {
-    return this.http.get<Drink>(
-      `${environment.soulac_api_url}` + '/drinks/user' + `/${id}`
-    );
+  getDrinks(): Observable<Drink> {
+    return this.http.get<Drink>(`${environment.soulac_api_url}` + '/drinks');
   }
   createDrink(drink: CreateDrinkForm): void {
     this.http

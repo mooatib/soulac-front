@@ -26,12 +26,24 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material/snack-bar';
-import { UserDrinksComponent } from './components/user-dashboard/user-drinks/user-drinks/user-drinks.component';
-import { UserStatsComponent } from './components/user-dashboard/user-stats/user-stats/user-stats.component';
-import { UserGroupsComponent } from './components/user-dashboard/user-groups/user-groups/user-groups.component';
-import { DrinkListComponent } from './components/drink-list/drink-list.component';
+import { UserDrinksComponent } from './components/user-dashboard/user-drinks/user-drinks.component';
+import { UserStatsComponent } from './components/user-dashboard/user-stats/user-stats.component';
+import { UserGroupsComponent } from './components/user-dashboard/user-groups/user-groups.component';
+import { DrinkListComponent } from './components/drink/drink-list/drink-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { DrinkFormComponent } from './components/drink/drink-form/drink-form.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { MtxDatetimepickerModule } from '@ng-matero/extensions/datetimepicker';
+import { MtxNativeDatetimeModule } from '@ng-matero/extensions/core';
+import { GroupDashboardComponent } from './components/group-dashboard/group-dashboard.component';
+import { GroupInfoComponent } from './components/group-dashboard/group-info/group-info.component';
+import { GroupDrinksComponent } from './components/group-dashboard/group-drinks/group-drinks.component';
+import { GroupUsersComponent } from './components/group-dashboard/group-users/group-users.component';
+import { GroupStatsComponent } from './components/group-dashboard/group-stats/group-stats.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +58,12 @@ import { MatTableModule } from '@angular/material/table';
     UserStatsComponent,
     UserGroupsComponent,
     DrinkListComponent,
+    DrinkFormComponent,
+    GroupDashboardComponent,
+    GroupInfoComponent,
+    GroupDrinksComponent,
+    GroupUsersComponent,
+    GroupStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +82,12 @@ import { MatTableModule } from '@angular/material/table';
     MatAutocompleteModule,
     MatPaginatorModule,
     MatTableModule,
+    MatSliderModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    NgxSliderModule,
+    MtxDatetimepickerModule,
+    MtxNativeDatetimeModule,
   ],
   providers: [
     {
