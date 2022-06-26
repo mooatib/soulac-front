@@ -44,6 +44,7 @@ import { GroupInfoComponent } from './components/group-dashboard/group-info/grou
 import { GroupDrinksComponent } from './components/group-dashboard/group-drinks/group-drinks.component';
 import { GroupUsersComponent } from './components/group-dashboard/group-users/group-users.component';
 import { GroupStatsComponent } from './components/group-dashboard/group-stats/group-stats.component';
+import { DrinkButtonComponent } from './components/drink/drink-button/drink-button.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { GroupStatsComponent } from './components/group-dashboard/group-stats/gr
     GroupDrinksComponent,
     GroupUsersComponent,
     GroupStatsComponent,
+    DrinkButtonComponent,
   ],
   imports: [
     BrowserModule,
