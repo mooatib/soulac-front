@@ -45,6 +45,7 @@ import { GroupDrinksComponent } from './components/group-dashboard/group-drinks/
 import { GroupUsersComponent } from './components/group-dashboard/group-users/group-users.component';
 import { GroupStatsComponent } from './components/group-dashboard/group-stats/group-stats.component';
 import { DrinkButtonComponent } from './components/drink/drink-button/drink-button.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { DrinkButtonComponent } from './components/drink/drink-button/drink-butt
     NgxSliderModule,
     MtxDatetimepickerModule,
     MtxNativeDatetimeModule,
+    MatButtonToggleModule,
   ],
   providers: [
     {

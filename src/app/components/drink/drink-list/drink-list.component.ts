@@ -64,4 +64,7 @@ export class DrinkListComponent implements OnInit {
   isDate(column: string) {
     return column.includes('date');
   }
+  isAlcoholType(column: string) {
+    return column.match('alcoholType');
+  }
 }

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom, Observable } from 'rxjs';
+import { Group } from 'src/app/models/group/group.model';
+import { Page } from 'src/app/models/page.model';
 import {
   CreateSoulacaisForm,
   UpdateSoulacaisForm,
@@ -44,6 +46,20 @@ export class SoulacaisService {
   getSoulacais(id: number): Observable<Soulacais> {
     return this.http.get<Soulacais>(
       `${environment.soulac_api_url}` + '/soulacais' + `/${id}`
+    );
+  }
+
+  getSoulacaisGroups(id: number, page: Page): Observable<Group[]> {
+    const params = {
+      nbr: page.nbr,
+      limit: page.limit,
+      search: page.search,
+      orderBy: page.orderBy,
+      orderByAsc: page.orderByAsc,
+    };
+    return this.http.get<Group[]>(
+      `${environment.soulac_api_url}` + `/soulacais/${id}` + '/groups',
+      { params }
     );
   }
 

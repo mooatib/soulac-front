@@ -7,6 +7,7 @@ import {
   UpdateAlcoholForm,
 } from 'src/app/models/alcohol/alcohol-form.model';
 import { Alcohol } from 'src/app/models/alcohol/alcohol.model';
+import { Page } from 'src/app/models/page.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,9 +16,17 @@ import { environment } from 'src/environments/environment';
 export class AlcoholService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAlcohols(skip: number, limit: number): Observable<Alcohol[]> {
+  getAlcohols(page: Page): Observable<Alcohol[]> {
+    const params = {
+      nbr: page.nbr,
+      limit: page.limit,
+      search: page.search,
+      orderBy: page.orderBy,
+      orderByAsc: page.orderByAsc,
+    };
     return this.http.get<Alcohol[]>(
-      `${environment.soulac_api_url}` + '/alcohols' + `/${skip}&${limit}`
+      `${environment.soulac_api_url}` + '/alcohols',
+      { params }
     );
   }
 
