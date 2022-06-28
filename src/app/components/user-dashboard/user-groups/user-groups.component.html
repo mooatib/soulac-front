@@ -1,0 +1,23 @@
+<h1 class="title">Your groups</h1>
+<mat-card class="groups-card">
+  <mat-form-field appearance="fill">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      [matAutocomplete]="auto"
+      [formControl]="groupCtrl"
+      placeholder="Group.."
+      #input
+    />
+  </mat-form-field>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let group of filteredGroups | async"
+      [value]="group.name"
+      [routerLink]="['/group', group.name]"
+      ><img class="group-icon" src="{{ group.img }}" />
+      <span> {{ group.name }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</mat-card>
