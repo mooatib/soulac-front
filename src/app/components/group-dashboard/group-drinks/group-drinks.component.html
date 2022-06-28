@@ -1,0 +1,28 @@
+<div *ngIf="!isLoading">
+  <h1 class="title">Drinks</h1>
+  <mat-card>
+    <mat-form-field appearance="fill">
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (keyup.enter)="applySearchFilter($event)"
+        placeholder="Drink.."
+        #input
+      />
+    </mat-form-field>
+    <app-drink-list
+      [drinks]="drinks"
+      [totalDrinks]="totalDrinks"
+    ></app-drink-list>
+    <mat-paginator
+      #paginator
+      [length]="totalDrinks"
+      [pageIndex]="page.nbr"
+      [pageSize]="page.limit"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="pageChanged($event)"
+      aria-label="Select page"
+    ></mat-paginator>
+  </mat-card>
+</div>

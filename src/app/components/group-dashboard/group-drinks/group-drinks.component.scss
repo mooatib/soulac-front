@@ -1,0 +1,19 @@
+.mat-form-field {
+  display: inline;
+  width: 100%;
+}
+::ng-deep {
+  .mat-autocomplete-panel {
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #424242;
+  }
+}
