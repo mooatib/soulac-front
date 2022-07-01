@@ -15,9 +15,12 @@
 // hue. Available color palettes: https://material.io/design/color/
 $light-accent: mat.define-palette(mat.$indigo-palette, 400);
 $light-primary: mat.define-palette(mat.$yellow-palette, 700);
+$typography: mat.define-typography-config(
+  $font-family: "quicksand",
+);
 
 // The warn palette is optional (defaults to red).
-$soulac-front-warn: mat.define-palette(mat.$red-palette);
+$soulac-front-warn: mat.define-palette(mat.$orange-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
@@ -28,6 +31,7 @@ $soulac-front-theme: mat.define-light-theme(
       accent: $light-accent,
       warn: $soulac-front-warn,
     ),
+    typography: $typography,
   )
 );
 
@@ -46,9 +50,7 @@ body {
 }
 body {
   margin: 0;
-
-  //color: #4a62ad;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "quicksand" !important;
   font-weight: lighter;
 }
 .mat-card {
@@ -89,14 +91,23 @@ body {
   background-color: #4a62ad;
   color: white;
 }
-.mat-button-wrapper {
-  color: white;
-}
 .mat-select-arrow {
   color: white;
 }
 .mat-select-value {
   color: white;
+}
+.mat-flat-button.mat-button-disabled.mat-button-disabled {
+  color: white;
+  background-color: #2b3d7648;
+}
+.mat-flat-button {
+  color: white;
+  background-color: #4a62ad;
+}
+.mat-flat-button:hover {
+  color: white;
+  background-color: #2c458d;
 }
 
 .auth-form {
@@ -122,6 +133,9 @@ body {
   width: 80% !important;
   margin: 0 auto !important;
   text-shadow: -1.2px 0px 0 #ffecc5;
-  font-weight: 600 !important;
+  // text-shadow: -1px 0px 0 rgba(0, 0, 0, 0.25);
+  font-family: "quicksand-bold" !important;
+  font-weight: bold !important;
+  letter-spacing: -1.2px !important;
   color: #4a62ad;
 }
